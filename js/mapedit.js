@@ -108,17 +108,10 @@ function main(canvas) {
     
     p.colorAllDefinitions(tilesFile, palette, function(cd) {
       colorData = cd;
-      
-      var list = $('<ul></ul>');
-      list.css('list-style-type', 'none');
-      list.css('margin', 0);
-      list.css('padding', 0);
-      contextMenu = $('<div></div>');    
-      contextMenu.append(list);
-      contextMenu.css('background', '#ffffff');
-      contextMenu.css('position', 'absolute');
-      contextMenu.height('200px');
-      contextMenu.css('overflow-y', 'scroll');
+
+      contextMenu = $('<div id="contextmenu"></div>');    
+      contextMenu.width('128px');
+      contextMenu.height('128px');
       contextMenu.hide();
       $('body').append(contextMenu);
     
@@ -126,6 +119,7 @@ function main(canvas) {
         var btn = document.createElement('canvas');
         btn.width = TILESIZE;
         btn.height = TILESIZE;
+        $(btn).addClass('tile-selector');
         btn.setAttribute('data-type', def.name);
         var context = btn.getContext('2d');
         context.putImageData(colorData[def.name].imgData, 0, 0);
@@ -137,9 +131,7 @@ function main(canvas) {
       });
     
       tileButtons.map(function(btn) {
-        var li = $('<li></li>');
-        li.append(btn);
-        list.append(li);
+        contextMenu.append(btn);
       });
     });
     
