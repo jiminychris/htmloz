@@ -19,6 +19,9 @@ body {
   color:#FFFFFF;
   background:#3E629C;
 }
+input[type=color] {
+  display:block;
+}
 #output {
 }
 html {

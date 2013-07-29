@@ -6,10 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" id="jquery"></script>
     <script src="js/imgpreload.js"></script>
     <script src="js/baseconvert.js"></script>
-    <script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
     <script src="js/parser.js"></script>
     <script src="js/mapedit.js"></script>
-    <link rel="stylesheet" media="screen" type="text/css" href="colorpicker/css/colorpicker.css" />
     <link type="text/css" rel="stylesheet" href="css/style.css"></link>
   </head>
   <body>
@@ -18,8 +16,9 @@
         <span class="hidden">Oh noes! Your browser doesn't support canvas! I guess you can't play my game unless you get a new one. :( I recommend <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>, personally.</span>
       </canvas>
       <div id="colorpickers"></div>
-      <div id="output"></div>
+      <textarea id="output"></textarea>
       <button id="dump">Dump</button>
+      <button id="load">Load</button>
     </div>
     <div id="instructions">Hey! Um, instructions so far. Righto:<ul>
       <li>Click to select tile</li>
@@ -30,6 +29,6 @@
       <li>Click on a color in the palette to change it (press button in bottom right corner of color picker to submit)</li>
       <li>Click 'Dump' to output the map in JSON text</li>
     </ul></div>
-    <div id="credits"><ul><li><a href="http://www.eyecon.ro/colorpicker/">Colorpicker plugin</a></li><li><a href="http://jquery.com/">jQuery</a></li></ul></div>
+    <div id="credits"><ul><li><a href="http://jquery.com/">jQuery</a></li></ul></div>
   </body>
 </html>

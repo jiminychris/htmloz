@@ -31,6 +31,9 @@ function coordinateInArray(value, array) {
   return -1;
 }
 
+function load(json) {
+}
+
 function changeSelectedTilesType(type) {
   selectedTilesCoordinates.map(function(c) {
     tiles[c.y][c.x] = {
@@ -98,8 +101,8 @@ function main(canvas) {
   }
   ctx = canvas.getContext('2d');
   
-  var p = new Parser('resources/maps/map_ow_8-8.json', TILESIZE);
-  p.parse(function(data) {
+  var p = new Parser(TILESIZE);
+  p.parseFile('resources/maps/map_ow_8-8.json', function(data) {
     tiles = data.tiles;
     tilesFile = data.tilesFile;
     tileSheet = data.tileSheet;
@@ -147,25 +150,40 @@ function main(canvas) {
           return {type: tile.type};
         });
       });
-      $('#output').text(JSON.stringify({palette:palette, tiles_file: tilesFile, tiles:t}));
+      $('#output').val(JSON.stringify({palette:palette, tiles_file: tilesFile, tiles:t}));
     });
-    
+    $('#load').click(function(e) {
+      var json = eval('('+$('#output').val()+')');
+      var p = new Parser(TILESIZE);
+      p.parse(json, function(data) {
+        tiles = data.tiles;
+        tilesFile = data.tilesFile;
+        tileSheet = data.tileSheet;
+        tileDefs = data.tileDefs;
+        palette = data.palette;
+          p.colorAllDefinitions(tilesFile, palette, function(cd) {
+            $('input[type="color"]').map(function (i, input) {
+              input.value = palette[i];
+            });
+            colorData = cd;
+            refreshColors();
+            render();
+          });
+      });
+    });
     palette.map(function(p, i) {
-      var input = $('<div></div>');
+      var input = $('<input type="color"></input>');
       input.height('16px');
       input.width('16px');
-      input.css('background', p);
-      function change(hsb, hex, rgb, el) {
-        hex = '#' + hex;
-        input.css('background', hex);
-        palette[i] = hex;
-        new Parser('', TILESIZE).colorAllDefinitions(tilesFile, palette, function(cd) {
+      input.val(p);
+      input.on('change', function() {
+        palette[i] = this.value;
+        new Parser(TILESIZE).colorAllDefinitions(tilesFile, palette, function(cd) {
           colorData = cd;
           refreshColors();
           render();
         });
-      }
-      input.ColorPicker({color:p, /*onChange: change,*/ onSubmit: function (a,b,c,d) {change(a,b,c,d);$(d).ColorPickerHide();}});
+      });
       $('#colorpickers').append(input);
     });
   
