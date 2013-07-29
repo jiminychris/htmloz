@@ -47,9 +47,12 @@ function changeSelectedTilesType(type) {
 }
 function refreshColors() {
   tiles.map(function(row, j) {
-    return row.map(function (tile, i) {
+    row.map(function (tile, i) {
       tiles[j][i].imgData = colorData[tile.type].imgData;
     });
+  });
+  tileButtons.map(function(btn, i) {
+    tileButtons[i].getContext('2d').putImageData(colorData[btn.getAttribute('data-type')].imgData, 0, 0);
   });
 }
 function arrowKeySelect(e, i) {
@@ -105,6 +108,39 @@ function main(canvas) {
     
     p.colorAllDefinitions(tilesFile, palette, function(cd) {
       colorData = cd;
+      
+      var list = $('<ul></ul>');
+      list.css('list-style-type', 'none');
+      list.css('margin', 0);
+      list.css('padding', 0);
+      contextMenu = $('<div></div>');    
+      contextMenu.append(list);
+      contextMenu.css('background', '#ffffff');
+      contextMenu.css('position', 'absolute');
+      contextMenu.height('200px');
+      contextMenu.css('overflow-y', 'scroll');
+      contextMenu.hide();
+      $('body').append(contextMenu);
+    
+      tileButtons = tileDefs.map(function(def) {
+        var btn = document.createElement('canvas');
+        btn.width = TILESIZE;
+        btn.height = TILESIZE;
+        btn.setAttribute('data-type', def.name);
+        var context = btn.getContext('2d');
+        context.putImageData(colorData[def.name].imgData, 0, 0);
+        $(btn).click(function(e) {
+          changeSelectedTilesType(def.name);
+          mostRecentTileName = def.name;
+        });
+        return btn;
+      });
+    
+      tileButtons.map(function(btn) {
+        var li = $('<li></li>');
+        li.append(btn);
+        list.append(li);
+      });
     });
     
     if (tileDefs.length == 0) {
@@ -112,27 +148,6 @@ function main(canvas) {
     }
     mostRecentTileName = tileDefs[0].name;
     
-    tileButtons = tileDefs.map(function(def) {
-      var btn = $('<button>'+def.name+'</button>');
-      btn.click(function(e) {
-        changeSelectedTilesType(def.name);
-        mostRecentTileName = def.name;
-      });
-      return btn;
-    });
-    
-    var list = $('<ul></ul>');
-    list.css('list-style-type', 'none');
-    list.css('margin', 0);
-    list.css('padding', 0);
-    contextMenu = $('<div></div>');    
-    contextMenu.append(list);
-    contextMenu.css('background', '#ffffff');
-    contextMenu.css('position', 'absolute');
-    contextMenu.height('200px');
-    contextMenu.css('overflow-y', 'scroll');
-    contextMenu.hide();
-    $('body').append(contextMenu);
     
     $('#dump').click(function(e) {
       var t = tiles.map(function(row) {
@@ -160,12 +175,6 @@ function main(canvas) {
       }
       input.ColorPicker({color:p, /*onChange: change,*/ onSubmit: function (a,b,c,d) {change(a,b,c,d);$(d).ColorPickerHide();}});
       $('#colorpickers').append(input);
-    });
-    
-    tileButtons.map(function(btn) {
-      var li = $('<li></li>');
-      li.append(btn);
-      list.append(li);
     });
   
     $(canvas).on('contextmenu', function(e) {
