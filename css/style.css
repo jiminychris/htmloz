@@ -1,0 +1,30 @@
+canvas > span .visible {
+  visibility: visible;
+}
+canvas > span .hidden {
+  visibility: hidden;
+}
+body {
+  color:#FFFFFF;
+  background:#3E629C;
+}
+html {
+  overflow-y:hidden;
+}
+#screen, #colorpickers, #output {
+  float:left;
+}
+#colorpickers {
+  margin:5px;
+}
+#output {
+  background:#FFFFFF;
+  width:256px;
+  height:176px;
+  overflow-y:scroll;
+  overflow-x:scroll;
+  color:#000000;
+}
+#instructions {
+  clear:left;
+}
