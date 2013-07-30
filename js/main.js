@@ -47,7 +47,7 @@ var phys = {
 function main(canvas) {
   ctx = canvas.getContext('2d');
   
-  new Parser('resources/maps/'+STARTMAP, TILESIZE).parse(function(data) {
+  new Parser(TILESIZE).parseFile('resources/maps/'+STARTMAP, function(data) {
     palette = data.palette;
     tiles = data.tiles;
     defaultColors = data.DEFAULT_COLORS;
