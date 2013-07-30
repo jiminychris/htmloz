@@ -13,6 +13,7 @@ var tiles;
 var tileSheet;
 var tilesFile;
 var colorData;
+var colorPickers = [];
 var palette = [];
 var glow = 'rgba(255,255,0,0)'
 var tileDefs;
@@ -161,29 +162,42 @@ function main(canvas) {
         tileSheet = data.tileSheet;
         tileDefs = data.tileDefs;
         palette = data.palette;
-          p.colorAllDefinitions(tilesFile, palette, function(cd) {
-            $('input[type="color"]').map(function (i, input) {
-              input.value = palette[i];
-            });
-            colorData = cd;
-            refreshColors();
-            render();
+        p.colorAllDefinitions(tilesFile, palette, function(cd) {
+          colorPickers.map(function (cpkr, i) {
+            console.log(i, cpkr);
+            $(cpkr).ColorPickerSetColor(palette[i]);
+            $($('#colorpickers > div')[i]).css('background', palette[i]);
           });
-      });
-    });
-    palette.map(function(p, i) {
-      var input = $('<input type="color"></input>');
-      input.height('16px');
-      input.width('16px');
-      input.val(p);
-      input.on('change', function() {
-        palette[i] = this.value;
-        new Parser(TILESIZE).colorAllDefinitions(tilesFile, palette, function(cd) {
           colorData = cd;
           refreshColors();
           render();
         });
       });
+    });
+    palette.map(function(p, i) {
+      var input = $('<div></div>');
+      input.height('16px');
+      input.width('16px');
+      input.css('background', p);
+      function changeBG(hex) {
+        input.css('background', hex);
+      }
+      input.ColorPicker({color:p, onSubmit: function(hsb, hex, rgb, el) {
+        hex = '#'+hex;
+        changeBG(hex);
+        palette[i] = hex;
+        new Parser(TILESIZE).colorAllDefinitions(tilesFile, palette, function(cd) {
+          colorData = cd;
+          refreshColors();
+          render();
+        });
+        $(el).ColorPickerHide();
+      }, onChange: function(hsb, hex, rgb, el) {
+        changeBG('#'+hex);
+      }, onHide: function(colpkr) {
+        changeBG(palette[i]);
+      }});
+      colorPickers[i] = input;
       $('#colorpickers').append(input);
     });
   
