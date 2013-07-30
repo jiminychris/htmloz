@@ -103,7 +103,7 @@ function main(canvas) {
   ctx = canvas.getContext('2d');
   
   var p = new Parser(TILESIZE);
-  p.parseFile('resources/maps/map_ow_8-8.json', function(data) {
+  p.parseFile('resources/maps/map_default.json', function(data) {
     tiles = data.tiles;
     tilesFile = data.tilesFile;
     tileSheet = data.tileSheet;
