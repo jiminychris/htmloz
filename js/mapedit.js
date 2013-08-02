@@ -145,7 +145,7 @@ function main(canvas) {
     mostRecentTileName = tileDefs[0].name;
     
     
-    $('#dump').click(function(e) {
+    $('#save').click(function(e) {
       var t = tiles.map(function(row) {
         return row.map(function(tile) {
           return {type: tile.type};
