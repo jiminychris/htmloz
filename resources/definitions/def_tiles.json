@@ -3,6 +3,7 @@
     "defs": [
         {
             "name": "floor",
+            "label": "Floor",
             "slice": {
                 "x": 0,
                 "y": 0,
@@ -12,6 +13,7 @@
         },
         {
             "name": "door",
+            "label": "Door",
             "slice": {
                 "x": 48,
                 "y": 0,
@@ -29,6 +31,7 @@
         },
         {
             "name": "water",
+            "label": "Water",
             "slice": {
                 "x":0,
                 "y":48,
@@ -46,6 +49,7 @@
         },
         {
             "name": "waterfall",
+            "label": "Waterfall",
             "slice": {
                 "x":64,
                 "y":80,
@@ -63,6 +67,7 @@
         },
         {
             "name": "waterfall_bottom",
+            "label": "Waterfall Bottom",
             "slice": {
                 "x":64,
                 "y":96,
@@ -72,6 +77,7 @@
         },
         {
             "name": "shore_top",
+            "label": "Shore Top", 
             "slice": {
                 "x":0,
                 "y":64,
@@ -89,6 +95,7 @@
         },
         {
             "name": "shore_right",
+            "label": "Shore Right", 
             "slice": {
                 "x":16,
                 "y":64,
@@ -106,6 +113,7 @@
         },
         {
             "name": "shore_bottom",
+            "label": "Shore Bottom", 
             "slice": {
                 "x":32,
                 "y":64,
@@ -123,6 +131,7 @@
         },
         {
             "name": "shore_left",
+            "label": "Shore Left", 
             "slice": {
                 "x":48,
                 "y":64,
@@ -140,6 +149,7 @@
         },
         {
             "name": "shore_top_left",
+            "label": "Shore Top Left", 
             "slice": {
                 "x":0,
                 "y":80,
@@ -157,6 +167,7 @@
         },
         {
             "name": "shore_top_right",
+            "label": "Shore Top Right", 
             "slice": {
                 "x":16,
                 "y":80,
@@ -174,6 +185,7 @@
         },
         {
             "name": "shore_bottom_right",
+            "label": "Shore Bottom Right", 
             "slice": {
                 "x":32,
                 "y":80,
@@ -191,6 +203,7 @@
         },
         {
             "name": "shore_bottom_left",
+            "label": "Shore Bottom Left", 
             "slice": {
                 "x":48,
                 "y":80,
@@ -208,6 +221,7 @@
         },
         {
             "name": "coast_top_left",
+            "label": "Coast Top Left", 
             "slice": {
                 "x":0,
                 "y":96,
@@ -217,6 +231,7 @@
         },
         {
             "name": "coast_top_right",
+            "label": "Coast Top Right", 
             "slice": {
                 "x":16,
                 "y":96,
@@ -226,6 +241,7 @@
         },
         {
             "name": "coast_bottom_right",
+            "label": "Coast Bottom Right", 
             "slice": {
                 "x":32,
                 "y":96,
@@ -235,6 +251,7 @@
         },
         {
             "name": "coast_bottom_left",
+            "label": "Coast Bottom Left", 
             "slice": {
                 "x":48,
                 "y":96,
@@ -244,6 +261,7 @@
         },
         {
             "name": "bridge",
+            "label": "Bridge",
             "slice": {
                 "x":48,
                 "y":48,
@@ -253,6 +271,7 @@
         },
         {
             "name": "wall",
+            "label": "Wall",
             "slice": {
                 "x":0,
                 "y":32,
@@ -270,6 +289,7 @@
         },
         {
             "name": "invisiwall",
+            "label": "Invisible Wall",
             "slice": {
                 "x":0,
                 "y":0,
@@ -287,6 +307,7 @@
         },
         {
             "name": "wall_top",
+            "label": "Wall Top",
             "slice": {
                 "x":16,
                 "y":32,
@@ -304,6 +325,7 @@
         },
         {
             "name": "rock",
+            "label": "Rock",
             "slice": {
                 "x":32,
                 "y":32,
@@ -321,6 +343,7 @@
         },
         {
             "name": "tree",
+            "label": "Tree",
             "slice": {
                 "x":48,
                 "y":32,
@@ -338,6 +361,7 @@
         },
         {
             "name": "tree_top_left",
+            "label": "Tree Top Left",
             "slice": {
                 "x":64,
                 "y":0,
@@ -355,6 +379,7 @@
         },
         {
             "name": "tree_top_right",
+            "label": "Tree Top Right",
             "slice": {
                 "x":64,
                 "y":16,
@@ -372,6 +397,7 @@
         },
         {
             "name": "tree_bottom_right",
+            "label": "Tree Bottom Right",
             "slice": {
                 "x":64,
                 "y":48,
@@ -389,6 +415,7 @@
         },
         {
             "name": "tree_bottom_left",
+            "label": "Tree Bottom Left",
             "slice": {
                 "x":64,
                 "y":32,
@@ -406,6 +433,7 @@
         },
         {
             "name": "tree_face",
+            "label": "Tree Face",
             "slice": {
                 "x":64,
                 "y":64,
@@ -423,6 +451,7 @@
         },
         {
             "name": "statue_top_left",
+            "label": "Statue Top Left",
             "slice": {
                 "x":80,
                 "y":0,
@@ -440,6 +469,7 @@
         },
         {
             "name": "statue_top_right",
+            "label": "Statue Top Right",
             "slice": {
                 "x":80,
                 "y":16,
@@ -457,6 +487,7 @@
         },
         {
             "name": "statue_bottom_right",
+            "label": "Statue Bottom Right",
             "slice": {
                 "x":80,
                 "y":48,
@@ -474,6 +505,7 @@
         },
         {
             "name": "statue_bottom_left",
+            "label": "Statue Bottom Left",
             "slice": {
                 "x":80,
                 "y":32,
@@ -491,6 +523,7 @@
         },
         {
             "name": "statue_face",
+            "label": "Statue Face",
             "slice": {
                 "x":80,
                 "y":64,
@@ -508,6 +541,7 @@
         },
         {
             "name": "wall_top_left",
+            "label": "Wall Top Left",
             "slice": {
                 "x":0,
                 "y":16,
@@ -531,6 +565,7 @@
         },
         {
             "name": "wall_top_right",
+            "label": "Wall Top Right",
             "slice": {
                 "x":16,
                 "y":16,
@@ -554,6 +589,7 @@
         },
         {
             "name": "wall_bottom_right",
+            "label": "Wall Bottom Right",
             "slice": {
                 "x":32,
                 "y":16,
@@ -577,6 +613,7 @@
         },
         {
             "name": "wall_bottom_left",
+            "label": "Wall Bottom Left",
             "slice": {
                 "x":48,
                 "y":16,
@@ -600,6 +637,7 @@
         },
         {
             "name": "stairs",
+            "label": "Stairs",
             "slice": {
                 "x":16,
                 "y":48,
@@ -609,6 +647,7 @@
         },
         {
             "name": "ladder",
+            "label": "Ladder",
             "slice": {
                 "x":32,
                 "y":48,

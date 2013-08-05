@@ -125,6 +125,7 @@ function main(canvas) {
         btn.height = TILESIZE;
         $(btn).addClass('tile-selector');
         btn.setAttribute('data-type', def.name);
+        btn.setAttribute('title', def.label);
         var context = btn.getContext('2d');
         context.putImageData(colorData[def.name].imgData, 0, 0);
         $(btn).click(function(e) {

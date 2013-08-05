@@ -21,7 +21,7 @@ var defaultColors = [];
 var palette = [];
 var TILESIZE = 16;
 //var STARTMAP = 'map_ow_8-8.json';
-var STARTMAP = 'map_ow_3-1.json';
+var STARTMAP = 'map_callista.json';
 
 var key = {
   up: 0,
